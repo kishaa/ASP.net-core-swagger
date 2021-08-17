@@ -30,6 +30,7 @@ jobs:
     docker: 
       - image: microsoft/dotnet:latest
     steps:
+      - checkout
       - run:
            working_directory: ./TodoApi
            name: Publish build
