@@ -29,7 +29,13 @@ jobs:
       - run:
            working_directory: ./TodoApi
            name: Publish build
-           command: dotnet publish --output ./Publish/Artifact/
+           command: |
+             dotnet publish --output /tmp/artifacts
+             mkdir /tmp/artifacts
+      - store_artifacts:
+          path: /tmp/artifacts
+          destination: build
+          name: DotnetBuild
 
             
 
