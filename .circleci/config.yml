@@ -31,10 +31,10 @@ jobs:
            name: Publish build
            command: |
              dotnet publish --output /publish/artifacts
+             
              mkdir /publish/artifact
       - store_artifacts:
           path: /publish/artifacts
-          destination: build
           name: DotnetBuild
 
             
