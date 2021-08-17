@@ -17,10 +17,15 @@ jobs:
       - run:
           # Update this line with the directory that contains your tests project file
           working_directory: ./TodoApi 
-          name: Restore Dependencies and build
+          name: Restore Dependencies
           command: |
             dotnet restore
-            dotnet build --configuration=Release
+      
+      - run:
+           working_directory: ./TodoApi
+           name: Run build
+           command: dotnet build --configuration Release
+
             
 
 workflows:
