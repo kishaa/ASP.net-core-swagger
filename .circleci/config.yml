@@ -25,6 +25,11 @@ jobs:
            working_directory: ./TodoApi
            name: Run build
            command: dotnet build --configuration Release
+        
+      - run:
+           working_directory: ./TodoApi
+           name: Publish build
+           command: dotnet publish --output ./Publish/Artifact/
 
             
 
