@@ -44,6 +44,7 @@ jobs:
       - image: ubuntu:latest
     steps:
     - run:
+        working_directory: /publish/artifacts
         name: Print Success
         command: |
           echo "Hello your build and pulish step are comeplete" > /publish/artifacts
