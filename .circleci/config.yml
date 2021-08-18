@@ -47,10 +47,10 @@ jobs:
         working_directory: /publish/artifacts
         name: Print Success
         command: |
-          echo "Hello your build and pulish step are comeplete" > /publish/artifacts
+          echo "Hello your build and pulish step are comeplete" > /publish/artifacts/Success.txt
           echo "Successfully build"
     - store_artifacts:
-        path: /publish/
+        path: /publish/artifacts/
         name: Success
             
 
