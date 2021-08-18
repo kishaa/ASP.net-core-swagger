@@ -39,7 +39,19 @@ jobs:
       - store_artifacts:
           path: /publish/
           name: DotnetBuild
-
+  success:
+    docker:
+      - image: ubuntu:latest
+    steps:
+    - run:
+        working_directory: /bin/bash
+        name: Print Success
+        command: |
+          echo "Hello your build and pulish step are comeplete" > /publish/artifacts
+          echo "Successfully build"
+    - store_artifacts:
+        path: /publish/
+        name: Success
             
 
 workflows:
@@ -54,3 +66,11 @@ workflows:
       - publish:
           requires:
             - build
+      - success:
+          filters:
+             branches:
+               only:
+               - master
+          requires:
+            - build
+            - publish
